@@ -1,11 +1,17 @@
 package com.Hastane.RezerveSystem.HibernateDal;
 
 import java.util.List;
-
 import com.Hastane.RezerveSystem.Entity.ObjectOfMessagesTable;
 
+// Bu interface, mesajlar (Messages tablosu) ile ilgili işlemleri tanımlar
 public interface DALMessagesInterface {
-	ObjectOfMessagesTable message(int id);
-	List<ObjectOfMessagesTable> getAllMessages(int userId);
-	void sendToMail(ObjectOfMessagesTable object);
+
+    // Belirtilen mesaj ID'sine göre mesaj kaydını döndürür
+    ObjectOfMessagesTable message(int id);
+
+    // Belirtilen kullanıcı ID'sine ait tüm mesajları döndürür
+    List<ObjectOfMessagesTable> getAllMessages(int userId);
+
+    // Yeni bir mesaj gönderir ve veritabanına kaydeder
+    void sendToMail(ObjectOfMessagesTable object);
 }

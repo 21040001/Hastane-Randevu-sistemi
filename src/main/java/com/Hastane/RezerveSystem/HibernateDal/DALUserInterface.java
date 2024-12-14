@@ -2,8 +2,12 @@ package com.Hastane.RezerveSystem.HibernateDal;
 
 import com.Hastane.RezerveSystem.Entity.ObjectOfUserTable;
 
-//Bu interface icinde sadece Doctor isimli Table ile ilgili sorularin methodlari ve degerleri kontrol ediliyor
+// Bu interface, kullanıcılar (User tablosu) ile ilgili işlemleri tanımlar
 public interface DALUserInterface {
-	ObjectOfUserTable getUserById(int id);
-	int getIdUserByTcNumber(int tcNumber);
+
+    // Kullanıcı ID'sine göre kullanıcı bilgilerini döndürür
+    ObjectOfUserTable getUserById(int id);
+
+    // TC numarasına göre kullanıcı ID'sini döndürür
+    int getIdUserByTcNumber(int tcNumber);
 }
