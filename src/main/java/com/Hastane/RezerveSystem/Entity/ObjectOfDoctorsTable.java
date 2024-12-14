@@ -31,6 +31,16 @@ public class ObjectOfDoctorsTable {
 	private String gender;
 	@Column(name = "password")
 	private String password;
+	@Column(name = "adress")
+	private String adress;
+	@Column(name = "profesion")
+	private String profesion;
+	@Column(name = "experience")
+	private String experience;
+	@Column(name = "languages")
+	private String languages;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -78,6 +88,30 @@ public class ObjectOfDoctorsTable {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getAdress() {
+		return adress;
+	}
+	public void setAdress(String adress) {
+		this.adress = adress;
+	}
+	public String getProfesion() {
+		return profesion;
+	}
+	public void setProfesion(String profesion) {
+		this.profesion = profesion;
+	}
+	public String getExperience() {
+		return experience;
+	}
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
+	public String getLanguages() {
+		return languages;
+	}
+	public void setLanguages(String languages) {
+		this.languages = languages;
 	}
 	
 	

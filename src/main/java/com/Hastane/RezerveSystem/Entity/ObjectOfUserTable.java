@@ -26,7 +26,8 @@ public class ObjectOfUserTable {
 	private String gender;
 	@Column(name = "password")
 	private String password;
-	
+	@Column(name = "adress")
+	private String adress;
 	
 	public int getId() {
 		return id;
@@ -75,6 +76,12 @@ public class ObjectOfUserTable {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getAdress() {
+		return adress;
+	}
+	public void setAdress(String adress) {
+		this.adress = adress;
 	}
 	
 	

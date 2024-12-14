@@ -10,4 +10,6 @@ public interface DALRezerveInterface {
 	List<ObjectOfRezerveTable> getDoctorsRezervesByDoctorName(String doctorName);
 	List<ObjectOfRezerveTable> getUserRezervesByUserId(int userId);
 	ObjectOfRezerveTable getRezerveById(int rezerveId);
+	void addRandevu(ObjectOfRezerveTable object);
+	void deleteRandevu(int randevuId);
 }

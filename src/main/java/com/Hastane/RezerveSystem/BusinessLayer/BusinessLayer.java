@@ -3,6 +3,7 @@ package com.Hastane.RezerveSystem.BusinessLayer;
 import java.util.List;
 
 import com.Hastane.RezerveSystem.Entity.ObjectOfDoctorsTable;
+import com.Hastane.RezerveSystem.Entity.ObjectOfMessagesTable;
 import com.Hastane.RezerveSystem.Entity.ObjectOfRezerveTable;
 import com.Hastane.RezerveSystem.Entity.ObjectOfUserTable;
 
@@ -13,5 +14,14 @@ public interface BusinessLayer {
 	ObjectOfRezerveTable getRezerveById(int rezerveId);
 	ObjectOfUserTable getUserById(int id);
 	ObjectOfDoctorsTable getDoctorByID(int id);
-	List<ObjectOfDoctorsTable> getAllDoctors();
+	List<String> getAllDoctors();
+	String getPasswordByTcNumber(int TcNumber);
+	void addRandevu(ObjectOfRezerveTable object);
+	int getIdUserByTcNumber(int tcNumber);
+	boolean itIsDoctor(int TcNumber);
+	ObjectOfMessagesTable message(int id);
+	List<ObjectOfMessagesTable> getAllMessages(int userId);
+	void sendToMail(ObjectOfMessagesTable object);
+	int getDoctorIdByName(String name);
+	void deleteRandevu(int randevuId);
 }
