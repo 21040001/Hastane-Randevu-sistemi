@@ -46,8 +46,18 @@ public class MessagesWindow extends JFrame {
         // Mesajları göstermek için liste modeli ve görünümü
         listModel = new DefaultListModel<>();
         listView = new JList<>(listModel);
+        listView.setVisibleRowCount(4); // Görünecek maksimum satır sayısı
         listView.setCellRenderer(new MessagesListCellRenderer()); // Mesajları özelleştirilmiş şekilde göstermek için cell renderer
 
+        listView.addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting()) {
+                ObjectOfMessagesTable selectedMessage = listView.getSelectedValue();
+                if (selectedMessage != null) {
+                    new DesktopMessageViewer(selectedMessage).setVisible(true);
+                }
+            }
+        });
+        
         // Mesaj listesi için kaydırılabilir panel
         JScrollPane scrollPane = new JScrollPane(listView);
         scrollPane.setBounds(30, 60, 390, 350);
@@ -66,14 +76,20 @@ public class MessagesWindow extends JFrame {
 
         // Pencere başlığı ve özellikleri
         setTitle("Messages"); // Pencere başlığı
-        setSize(450, 480); // Pencere boyutu
+        setSize(450, 430); // Pencere boyutu
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Pencere kapatma davranışı
         setLocationRelativeTo(null); // Pencereyi ekranın ortasına yerleştir
     }
 
     // Kullanıcının tüm mesajlarını liste modeline yükleyen metod
     private void loadData() {
-        List<ObjectOfMessagesTable> data = business.getAllMessages(userId); // Kullanıcı mesajlarını getir
+    	List<ObjectOfMessagesTable> data;
+    	if(itIsDoctor) {
+    		data = business.getAllDoctorMessages(userId); // Doctor mesajlarını getir
+    	}else {
+    		data = business.getAllUserMessages(userId); // Kullanıcı mesajlarını getir
+    	}
+        
 
         // Mesajları liste modeline ekle
         for (ObjectOfMessagesTable item : data) {

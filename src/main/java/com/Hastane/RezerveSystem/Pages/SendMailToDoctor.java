@@ -78,6 +78,7 @@ public class SendMailToDoctor extends JFrame {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // Tarih formatı
                 int sender = idUser; // Mesaj gönderen kullanıcı ID
                 int receiver = business.getDoctorIdByName((String) doctorCombo.getSelectedItem()); // Seçilen doktorun ID'si
+                String subject = subjectLabel.getText(); //Subject metni
                 String body = messageArea.getText(); // Mesaj metni
                 String time = currentDateTime.format(formatter); // Tarihi string olarak biçimlendir
 
@@ -94,6 +95,7 @@ public class SendMailToDoctor extends JFrame {
                 object.setFull_name(fullName);
                 object.setBody(body);
                 object.setTime(sqlDate);
+                object.setSubject(subjectLabel.toString());
 
                 // İş mantığı üzerinden mesaj gönderimi
                 business.sendToMail(object);

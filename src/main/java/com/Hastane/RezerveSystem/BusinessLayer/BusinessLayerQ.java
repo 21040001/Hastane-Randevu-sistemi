@@ -101,9 +101,9 @@ public class BusinessLayerQ implements BusinessLayer {
     }
 
     @Override
-    public List<ObjectOfMessagesTable> getAllMessages(int userId) {
+    public List<ObjectOfMessagesTable> getAllUserMessages(int userId) {
         // Belirli bir kullanıcıya ait tüm mesajları getirir
-        return message.getAllMessages(userId);
+        return message.getAllUserMessages(userId);
     }
 
     @Override
@@ -123,4 +123,9 @@ public class BusinessLayerQ implements BusinessLayer {
         // Belirli bir randevuyu ID'sine göre siler
         randevu.deleteRandevu(randevuId);
     }
+
+	@Override
+	public List<ObjectOfMessagesTable> getAllDoctorMessages(int doctorId) {
+		return message.getAllDoctorMessages(doctorId);
+	}
 }

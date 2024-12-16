@@ -27,6 +27,8 @@ public class ObjectOfMessagesTable {
 	private Date time;
 	@Column(name = "full_name")
 	private String full_name;
+	@Column(name = "subject")
+	private String subject;
 	
 	public int getId() {
 		return id;
@@ -63,6 +65,12 @@ public class ObjectOfMessagesTable {
 	}
 	public void setTime(Date time) {
 		this.time = time;
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 	
 	

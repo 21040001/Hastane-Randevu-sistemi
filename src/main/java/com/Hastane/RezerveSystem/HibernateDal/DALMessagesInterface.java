@@ -10,7 +10,10 @@ public interface DALMessagesInterface {
     ObjectOfMessagesTable message(int id);
 
     // Belirtilen kullanıcı ID'sine ait tüm mesajları döndürür
-    List<ObjectOfMessagesTable> getAllMessages(int userId);
+    List<ObjectOfMessagesTable> getAllUserMessages(int userId);
+    
+    // Belirtilen kullanıcı ID'sine ait tüm mesajları döndürür
+    List<ObjectOfMessagesTable> getAllDoctorMessages(int doctorId);
 
     // Yeni bir mesaj gönderir ve veritabanına kaydeder
     void sendToMail(ObjectOfMessagesTable object);

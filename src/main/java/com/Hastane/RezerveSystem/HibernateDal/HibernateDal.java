@@ -157,11 +157,11 @@ public class HibernateDal implements DALRezerveInterface, DALDoctorInterface, DA
 
     @Override
     @Transactional
-    public List<ObjectOfMessagesTable> getAllMessages(int userId) {
+    public List<ObjectOfMessagesTable> getAllUserMessages(int userId) {
         // Belirtilen kullanıcı ID'sine göre mesajları listeler
         Session session = entityManager.unwrap(Session.class);
         return session.createNativeQuery(
-            "Select * FROM HastaneRS.dbo.messages where receiver = " + userId, ObjectOfMessagesTable.class).getResultList();
+            "Select * FROM HastaneRS.dbo.messages where sender = " + userId, ObjectOfMessagesTable.class).getResultList();
     }
 
     @Override
@@ -197,4 +197,12 @@ public class HibernateDal implements DALRezerveInterface, DALDoctorInterface, DA
             System.out.print(e);
         }
     }
+
+	@Override
+	public List<ObjectOfMessagesTable> getAllDoctorMessages(int doctorId) {
+		// Belirtilen kullanıcı ID'sine göre mesajları listeler
+        Session session = entityManager.unwrap(Session.class);
+        return session.createNativeQuery(
+            "Select * FROM HastaneRS.dbo.messages where receiver = " + doctorId, ObjectOfMessagesTable.class).getResultList();
+	}
 }

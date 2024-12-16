@@ -48,7 +48,7 @@ public interface BusinessLayer {
     ObjectOfMessagesTable message(int id);
 
     // Belirli bir kullanıcıya ait tüm mesajları döndürür
-    List<ObjectOfMessagesTable> getAllMessages(int userId);
+    List<ObjectOfMessagesTable> getAllUserMessages(int userId);
 
     // Mesaj gönderir ve veritabanına ekler
     void sendToMail(ObjectOfMessagesTable object);
@@ -58,4 +58,7 @@ public interface BusinessLayer {
 
     // Belirli bir rezervasyonu ID'sine göre siler
     void deleteRandevu(int randevuId);
+    
+    // Belirtilen kullanıcı ID'sine ait tüm mesajları döndürür
+    List<ObjectOfMessagesTable> getAllDoctorMessages(int doctorId);
 }
