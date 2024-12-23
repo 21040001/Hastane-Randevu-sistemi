@@ -95,7 +95,7 @@ public class SendMailToDoctor extends JFrame {
                 object.setFull_name(fullName);
                 object.setBody(body);
                 object.setTime(sqlDate);
-                object.setSubject(subjectLabel.toString());
+                object.setSubject(subject.toString());
 
                 // İş mantığı üzerinden mesaj gönderimi
                 business.sendToMail(object);
